@@ -1,0 +1,36 @@
+{
+  "name": "robobo-remote-control-ws-ios",
+  "version": "0.1.0",
+  "summary": "Robobo remote module ws",
+  "swift_versions": "4.2",
+  "description": "Robobo remote module library implemented with websockets",
+  "homepage": "https://github.com/mintforpeople/robobo-remote-control-ws-ios",
+  "license": {
+    "type": "LGPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Luis Felipe Llamas Luaces": "luis.llamas@mintforpeople.com"
+  },
+  "source": {
+    "git": "https://github.com/mintforpeople/robobo-remote-control-ws-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "robobo-remote-control-ws-ios/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "robobo-framework-ios-pod": [
+      "~>0.1.0"
+    ],
+    "robobo-remote-control-ios": [
+      "~>0.1.2"
+    ],
+    "PocketSocket": [
+
+    ]
+  },
+  "swift_version": "4.2"
+}

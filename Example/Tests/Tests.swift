@@ -1,6 +1,5 @@
 import XCTest
-import robobo-remote-control-ws-ios
-
+import robobo_remote_control_ws_ios
 class Tests: XCTestCase {
     
     override func setUp() {

@@ -1,0 +1,44 @@
+PODS:
+  - PocketSocket (1.0.1):
+    - PocketSocket/Client (= 1.0.1)
+    - PocketSocket/Core (= 1.0.1)
+    - PocketSocket/Server (= 1.0.1)
+  - PocketSocket/Client (1.0.1):
+    - PocketSocket/Core
+  - PocketSocket/Core (1.0.1)
+  - PocketSocket/Server (1.0.1):
+    - PocketSocket/Client
+  - robobo-framework-ios-pod (0.1.0)
+  - robobo-remote-control-ios (0.1.2):
+    - robobo-framework-ios-pod (~> 0.1.0)
+  - robobo-remote-control-ws-ios (0.1.0):
+    - PocketSocket
+    - robobo-framework-ios-pod (~> 0.1.0)
+    - robobo-remote-control-ios (~> 0.1.2)
+
+DEPENDENCIES:
+  - PocketSocket
+  - robobo-framework-ios-pod (~> 0.1.0)
+  - robobo-remote-control-ios (~> 0.1.2)
+  - robobo-remote-control-ws-ios (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PocketSocket
+  https://github.com/mintforpeople/mint-podspec-repo.git:
+    - robobo-framework-ios-pod
+    - robobo-remote-control-ios
+
+EXTERNAL SOURCES:
+  robobo-remote-control-ws-ios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PocketSocket: 9c6867d66fb4f962af96b9b07f4b45bb561b2c2a
+  robobo-framework-ios-pod: 455ab7e508c33628ecf8bdc9089b085857514471
+  robobo-remote-control-ios: c5f01ba4ce3ae94048e94cefa86d0bf803a42293
+  robobo-remote-control-ws-ios: a11db72eeeaa282f90a12e11a84c284a5370ab59
+
+PODFILE CHECKSUM: 35f9df1c8ef84e6bfd199a41802ea2e8a007f21c
+
+COCOAPODS: 1.7.0
