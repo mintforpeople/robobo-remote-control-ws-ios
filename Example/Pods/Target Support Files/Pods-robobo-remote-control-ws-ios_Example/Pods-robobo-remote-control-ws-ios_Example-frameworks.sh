@@ -165,12 +165,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-framework-ios-pod/robobo_framework_ios_pod.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-remote-control-ios/robobo_remote_control_ios.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-remote-control-ws-ios/robobo_remote_control_ws_ios.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/robobo-sensing-ios/robobo_sensing_ios.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/PocketSocket/PocketSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-framework-ios-pod/robobo_framework_ios_pod.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-remote-control-ios/robobo_remote_control_ios.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/robobo-remote-control-ws-ios/robobo_remote_control_ws_ios.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/robobo-sensing-ios/robobo_sensing_ios.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

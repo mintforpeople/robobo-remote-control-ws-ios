@@ -324,6 +324,7 @@
 				"${BUILT_PRODUCTS_DIR}/robobo-framework-ios-pod/robobo_framework_ios_pod.framework",
 				"${BUILT_PRODUCTS_DIR}/robobo-remote-control-ios/robobo_remote_control_ios.framework",
 				"${BUILT_PRODUCTS_DIR}/robobo-remote-control-ws-ios/robobo_remote_control_ws_ios.framework",
+				"${BUILT_PRODUCTS_DIR}/robobo-sensing-ios/robobo_sensing_ios.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -331,6 +332,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/robobo_framework_ios_pod.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/robobo_remote_control_ios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/robobo_remote_control_ws_ios.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/robobo_sensing_ios.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

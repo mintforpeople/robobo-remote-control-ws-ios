@@ -15,9 +15,13 @@ public class RemoteControlModuleWS: NSObject, IModule,  IRemoteControlProxy{
     var manager: RoboboManager!
     var remote: IRemoteControlModule!
     var encoder: RoboboJSONEncoder!
+    
+    var connections: [Int:PSWebSocket]!
 
     public func notifyStatus(_ status: Status) {
-        
+        for (key,ws) in connections{
+            ws.send(encoder.encodeStatus(status))
+        }
     }
     
     public func notifyResponse(_ response: Response) {
@@ -26,6 +30,7 @@ public class RemoteControlModuleWS: NSObject, IModule,  IRemoteControlProxy{
     
     public func startup(_ manager: RoboboManager) throws {
         
+        connections = [:]
         
         do{
             
@@ -74,13 +79,15 @@ extension RemoteControlModuleWS: PSWebSocketServerDelegate{
     }
     
     public func server(_ server: PSWebSocketServer!, webSocketDidOpen webSocket: PSWebSocket!) {
+        connections[webSocket.hashValue] = webSocket
+        remote.notifyConnection(connections.count)
+        
         print("webSocketDidOpen")
     }
     
     public func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didReceiveMessage message: Any!) {
-        print("-------------------")
-        print(message as! String)
-        //METER TRYCATCH
+        //print("-------------------")
+        //print(message as! String)
         
         var m:String = message as! String
         do{
@@ -89,15 +96,21 @@ extension RemoteControlModuleWS: PSWebSocketServerDelegate{
         } catch {
             print(error)
         }
-        print("-------------------")
+        //print("-------------------")
 
     }
     
     public func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didFailWithError error: Error!) {
+        connections.removeValue(forKey: webSocket.hashValue)
+        remote.notifyDisconnection(connections.count)
+
         print("didFailWithError error:\(error)")
     }
     
     public func server(_ server: PSWebSocketServer!, webSocket: PSWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
+        connections.removeValue(forKey: webSocket.hashValue)
+        remote.notifyDisconnection(connections.count)
+
         print("didCloseWithCode code:\(code) wasClean \(wasClean)")
     }
     
