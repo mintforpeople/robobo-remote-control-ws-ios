@@ -9,6 +9,8 @@
 import robobo_framework_ios_pod
 
 class RemoteControlModule: NSObject, IRemoteControlModule {
+    var processQueue: DispatchQueue!
+    
     
     var delegates: [IRemoteDelegate]!
     
@@ -56,7 +58,7 @@ class RemoteControlModule: NSObject, IRemoteControlModule {
 
     }
     
-    func queueCommand(_ command: Command) {
+    func queueCommand(_ command: RemoteCommand) {
         do {
             try commandQueueProcessor.put(command)
         } catch  {
@@ -77,6 +79,7 @@ class RemoteControlModule: NSObject, IRemoteControlModule {
     }
     
     func startup(_ manager: RoboboManager) throws {
+        processQueue = DispatchQueue(label: "commandQueue.listAccess", qos: .utility, attributes: .concurrent)
         remoteControlProxies = []
         delegates = []
         commandQueueProcessor = CommandQueueProcessor(self, manager)

@@ -13,6 +13,7 @@ public class Value: NSObject {
     
     public override init() {
         value = [String:String]()
+        value[""]=""
     }
     
     public func putContents(_ key:String, _ val:String){

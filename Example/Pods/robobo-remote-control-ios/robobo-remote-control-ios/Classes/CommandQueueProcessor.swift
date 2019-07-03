@@ -16,6 +16,7 @@ class CommandQueueProcessor: NSObject {
     var lastCommandReceptionTime:Int = 0
     let MAX_TIME_WITHOUT_COMMANDS_TO_SLEEP: Int = 60 * 3
     var commandExecutors: [String: ICommandExecutor]!
+    var processing: Bool = false
 
     
     var queue: DispatchQueue!
@@ -34,7 +35,7 @@ class CommandQueueProcessor: NSObject {
     func start(){
         timer = Timer.scheduledTimer(timeInterval: TimeInterval(MAX_TIME_WITHOUT_COMMANDS_TO_SLEEP), target: self, selector: #selector(CommandQueueProcessor.periodicCommandReceptionCheck), userInfo: nil, repeats: true)
         timer.fire()
-        queue = DispatchQueue(label: "CommandQueueProcessor", qos: .userInteractive)
+        queue = DispatchQueue(label: "commandQueue.processor", qos: .utility)
         queue.async {
             self.run()
         }
@@ -43,14 +44,20 @@ class CommandQueueProcessor: NSObject {
     func run(){
         var i = 0
         while !interrupted {
-            var command: Command! 
+            usleep(1000)
+            var command: RemoteCommand! 
             i = i+1
             
             do {
-                if (!commandQueue.isEmpty()){
+                if ((!commandQueue.isEmpty())&&(!processing)){
                     //roboboManager.log("Command Queued")
+                    processing = true
+                    try remoteModule.processQueue.sync {
+                        
+                        command = try self.commandQueue.take()
+                        
+                    }
                     
-                    command = try commandQueue.take()
                     do{
                         let commandExecutor: ICommandExecutor = try getCommandExecutor(command.getName())
                         commandExecutor.executeCommand(command, remoteModule)
@@ -60,9 +67,11 @@ class CommandQueueProcessor: NSObject {
                     } catch {
                         
                     }
+                    processing = false
                 }
             } catch {
-                
+                processing = false
+
             }
             
         }
@@ -86,7 +95,7 @@ class CommandQueueProcessor: NSObject {
         }
     }
     
-    func put(_ command: Command) throws{
+    func put(_ command: RemoteCommand) throws{
         if (interrupted){
             throw RemoteModuleError.commandCannotBeAdded
         }
@@ -94,7 +103,10 @@ class CommandQueueProcessor: NSObject {
         lastCommandReceptionTime = Date().millisecondsSince1970
         // roboboManager.changePowerModeTo(PowerMode.NORMAL)
         //roboboManager.log("Is empty? \(commandQueue.isEmpty())")
-        commandQueue.put(command)
+        
+        remoteModule.processQueue.async(flags:.barrier) {
+            self.commandQueue.put(command)
+        }
     }
     
     @objc func periodicCommandReceptionCheck(){

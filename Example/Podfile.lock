@@ -9,9 +9,9 @@ PODS:
   - PocketSocket/Server (1.0.1):
     - PocketSocket/Client
   - robobo-framework-ios-pod (0.1.0)
-  - robobo-remote-control-ios (0.1.2):
+  - robobo-remote-control-ios (0.1.4):
     - robobo-framework-ios-pod (~> 0.1.0)
-  - robobo-remote-control-ws-ios (0.1.0):
+  - robobo-remote-control-ws-ios (0.1.2):
     - PocketSocket
     - robobo-framework-ios-pod (~> 0.1.0)
     - robobo-remote-control-ios (~> 0.1.2)
@@ -22,7 +22,7 @@ PODS:
 DEPENDENCIES:
   - PocketSocket
   - robobo-framework-ios-pod (~> 0.1.0)
-  - robobo-remote-control-ios (~> 0.1.2)
+  - robobo-remote-control-ios (~> 0.1.4)
   - robobo-remote-control-ws-ios (from `../`)
   - robobo-sensing-ios (~> 0.1.2)
 
@@ -41,10 +41,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   PocketSocket: 9c6867d66fb4f962af96b9b07f4b45bb561b2c2a
   robobo-framework-ios-pod: 455ab7e508c33628ecf8bdc9089b085857514471
-  robobo-remote-control-ios: c5f01ba4ce3ae94048e94cefa86d0bf803a42293
-  robobo-remote-control-ws-ios: 0380395c404a268744cff45027aec1e7bc136e3c
+  robobo-remote-control-ios: c3a1fdc67ddf58e9471ef900d0607c11aec29329
+  robobo-remote-control-ws-ios: c3c68f816b9bd48c7e7cd56b957293ca91decde0
   robobo-sensing-ios: ad980ab6a573a2016e9abb6e61d967a2216e26ca
 
-PODFILE CHECKSUM: 50692c74ec8869421f7ae48f18d47918457711ab
+PODFILE CHECKSUM: c50ff679fb0f6e04650915795245f7c7f77af073
 
 COCOAPODS: 1.7.0

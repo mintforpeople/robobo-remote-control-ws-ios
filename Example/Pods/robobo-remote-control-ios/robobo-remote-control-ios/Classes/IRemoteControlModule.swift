@@ -9,6 +9,7 @@
 import robobo_framework_ios_pod
 
 public protocol IRemoteControlModule: IModule {
+    var processQueue:DispatchQueue! { get }
     
     func registerCommand(_ commandName:String, _ module: ICommandExecutor)
     
@@ -24,7 +25,7 @@ public protocol IRemoteControlModule: IModule {
     
     func unregisterRemoteControlProxy(_ proxy: IRemoteControlProxy)
     
-    func queueCommand(_ command: Command)
+    func queueCommand(_ command: RemoteCommand)
     
     func notifyConnection(_ connNumber: Int)
     

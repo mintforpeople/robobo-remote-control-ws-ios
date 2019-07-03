@@ -30,11 +30,11 @@ public class RoboboJSONEncoder: NSObject {
         return output
     }
     
-    public func decodeCommand(_ str: String) throws -> Command{
+    public func decodeCommand(_ str: String) throws -> RemoteCommand{
         let decoder = JSONDecoder()
         
         let jsonData = str.data(using: .utf8)!
-        let command = try decoder.decode(Command.self, from: jsonData)
+        let command = try decoder.decode(RemoteCommand.self, from: jsonData)
         
         return command
     }

@@ -91,7 +91,7 @@ extension RemoteControlModuleWS: PSWebSocketServerDelegate{
         
         var m:String = message as! String
         do{
-        let command:Command = try encoder.decodeCommand(CommandSanitizer.sanitize(m))
+        let command:RemoteCommand = try encoder.decodeCommand(CommandSanitizer.sanitize(m))
         remote.queueCommand(command)
         } catch {
             print(error)

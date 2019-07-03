@@ -10,6 +10,6 @@ import UIKit
 
 public protocol ICommandExecutor: NSObject {
     
-   func executeCommand(_ c:Command, _ rcmodule:IRemoteControlModule)
+   func executeCommand(_ c:RemoteCommand, _ rcmodule:IRemoteControlModule)
 
 }

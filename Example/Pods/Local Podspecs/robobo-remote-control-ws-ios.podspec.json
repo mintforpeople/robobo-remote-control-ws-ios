@@ -1,6 +1,6 @@
 {
   "name": "robobo-remote-control-ws-ios",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "Robobo remote module websocket",
   "swift_versions": "4.2",
   "description": "Robobo remote module library implemented with websockets",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mintforpeople/robobo-remote-control-ws-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "10.0"
