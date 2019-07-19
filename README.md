@@ -1,7 +1,7 @@
 # robobo-remote-control-ws-ios
 
 [![Version](https://img.shields.io/cocoapods/v/robobo-remote-control-ws-ios.svg?style=flat)](https://cocoapods.org/pods/robobo-remote-control-ws-ios)
-[![License](https://img.shields.io/cocoapods/l/robobo-remote-control-ws-ios.svg?style=flat)](https://cocoapods.org/pods/robobo-remote-control-ws-ios)
+[![License](https://img.shields.io/cocoapods/l/robobo-remote-control-ws-ios.svg?style=flat)](https://github.com/mintforpeople/robobo-remote-control-ws-ios/blob/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/robobo-remote-control-ws-ios.svg?style=flat)](https://cocoapods.org/pods/robobo-remote-control-ws-ios)
 
 ## Example
