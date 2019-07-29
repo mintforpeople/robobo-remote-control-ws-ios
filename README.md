@@ -11,7 +11,7 @@ In the example, a instance of sensing module is instanced along with the websock
 Connecting a client to the remote module server will show the status being sent from the sensing module.
 
 ## Requirements
-This module depends on robobo-framework-ios-pod and robobo-remote-control-ios, add it to your podfile as follows:
+This module depends on robobo-framework-ios-pod and robobo-remote-control-ios, add them to your podfile as follows:
 
 ```ruby
 pod 'robobo-framework-ios-pod','~>0.1.0'
