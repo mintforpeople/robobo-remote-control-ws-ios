@@ -1,16 +1,22 @@
 # robobo-remote-control-ws-ios
 
-<!--
-[![Version](https://img.shields.io/cocoapods/v/robobo-remote-control-ws-ios.svg?style=flat)](https://cocoapods.org/pods/robobo-remote-control-ws-ios)
-[![License](https://img.shields.io/cocoapods/l/robobo-remote-control-ws-ios.svg?style=flat)](https://github.com/mintforpeople/robobo-remote-control-ws-ios/blob/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/robobo-remote-control-ws-ios.svg?style=flat)](https://cocoapods.org/pods/robobo-remote-control-ws-ios)
--->
-
+The Remote Control Module WS is the Websocket implementation of the Robobo Remote control interface. It allows the remote access to the robot using a websocket client.
+This module opens a websocket server on the port 40404 of the iPhone, to use this module check if your firewall allows the access to this port. 
+Connections to the websocket server must be using the "ws://ip:40404" format, using the secure version "wss://" wont work.
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+In the example, a instance of sensing module is instanced along with the websocket remote module via the ```modules.plist``` file. 
+Connecting a client to the remote module server will show the status being sent from the sensing module.
+
 ## Requirements
+This module depends on robobo-framework-ios-pod and robobo-remote-control-ios, add it to your podfile as follows:
+
+```ruby
+pod 'robobo-framework-ios-pod','~>0.1.0'
+pod 'robobo-remote-control-ios','~>0.1.4'
+```
 
 ## Installation
 
@@ -19,6 +25,19 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'robobo-remote-control-ws-ios'
+```
+
+Also add the following lines to the beginning of `your Podfile, to allow the download of dependencies through our private Podspec repository:
+
+```ruby
+source "https://github.com/mintforpeople/mint-podspec-repo.git"
+source "https://github.com/CocoaPods/Specs.git"
+```
+
+When importing it in your code, be aware that the dashes on the module name are converted to underscores:
+
+```swift
+import robobo_remote_control_ws_ios
 ```
 
 ## Author
