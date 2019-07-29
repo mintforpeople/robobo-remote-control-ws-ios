@@ -2,7 +2,7 @@
 
 The Remote Control Module WS is the Websocket implementation of the Robobo Remote control interface. It allows the remote access to the robot using a websocket client.
 This module opens a websocket server on the port 40404 of the iPhone, to use this module check if your firewall allows the access to this port. 
-Connections to the websocket server must be using the "ws://ip:40404" format, using the secure version "wss://" wont work.
+Connections to the websocket server must be using the "ws://ip:40404" format, using the secure version "wss://" won't work.
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
