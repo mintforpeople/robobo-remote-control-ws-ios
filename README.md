@@ -42,7 +42,7 @@ import robobo_remote_control_ws_ios
 
 ## Author
 
-lfllamas93@gmail.com
+Luis Llamas, luis.llamas@mintforpeople.com
 
 ## License
 
