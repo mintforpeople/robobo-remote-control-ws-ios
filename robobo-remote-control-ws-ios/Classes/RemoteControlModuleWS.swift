@@ -69,6 +69,9 @@ public class RemoteControlModuleWS: NSObject, IModule,  IRemoteControlProxy{
     }
     
     public func shutdown() throws {
+        remote.unregisterRemoteControlProxy(self)
+
+        server.stop()
         
     }
     
